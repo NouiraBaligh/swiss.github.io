@@ -9,6 +9,8 @@ export default (req: NextApiRequest, res: NextApiResponse) => {
   } = req
 
   const product = products.find(x => x.id === pid);
-  res.setHeader('Cache-Control', 'no-cache, must-revalidate, max-age=0');
+  res.setHeader("Cache-Control", "no-cache, must-revalidate, max-age=0");
+  res.setHeader("Vercel-Cache-Control", "s-maxage=1, stale-while-revalidate");
+
   res.status(200).json(product);
 }
