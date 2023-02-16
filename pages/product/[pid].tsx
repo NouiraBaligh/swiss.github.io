@@ -36,14 +36,14 @@ const Product = ({ product }: ProductPageType) => {
   return (
     <Layout>
       <Breadcrumb />
-
+ 
       <section className="product-single">
         <div className="container">
           <div className="product-single__content">
             <Gallery images={product.images} />
             <Content product={product} />
           </div>
-
+  
           <div className="product-single__info">
             <div className="product-single__info-btns">
               <button type="button" onClick={() => setShowBlock('description')} className={`btn btn--rounded ${showBlock === 'description' ? 'btn--active' : ''}`}>Description</button>
