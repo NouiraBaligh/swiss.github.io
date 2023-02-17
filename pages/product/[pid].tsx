@@ -21,19 +21,19 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   if (!pid) {
     return {
       notFound: true
-    }
+    };
   }
 
-  const res = await fetch(`${server}/api/product/${pid}?t=${Date.now()}`);
+  // Use the new API endpoint with a timestamp query parameter
+  const res = await fetch(`${server}/api/product/${pid}?timestamp=${Date.now()}`);
   const product = await res.json();
 
   return {
     props: {
       product,
     },
-  }
-}
-
+  };
+};
 const Product = ({ product }: ProductPageType) => {
   const [showBlock, setShowBlock] = useState('description');
 
